@@ -1,6 +1,7 @@
 function generateButtons()
 {
     var max=document.getElementById('numberOfButtons').value;
+    document.getElementById("sel").innerHTML = "Select a button!";
     var i, element, text;
     for (i=1; i<=max; ++i) {
         element = document.createElement("BUTTON");
