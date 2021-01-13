@@ -1,6 +1,12 @@
-    var array = [];
+
+    var array =[];
 
     function generateButtons() {
+        for (i=1; i<= array.length; ++i) {
+            var elem = document.getElementById(i);
+            elem.parentNode.removeChild(elem);
+        }
+        array = [];
         var numberButtons=document.getElementById('numberOfButtons').value;
         document.getElementById("sel").innerHTML = "Select a button!";
         var index, element, text;
@@ -17,16 +23,15 @@
     function replyClick(clickedId) {
         var name;
         var max=document.getElementById('numberOfButtons').value;
-        var selected=Math.floor(Math.random()*max)+1;
-        if (array.indexOf(selected)===-1) {
-            array.push(selected);
-        } else if (array.length<=max) {
-            while (array.indexOf(selected)!==-1) {
-                selected=Math.floor(Math.random()*max)+1;
+        if (array.length<max) {
+            var selected = Math.floor(Math.random()*max)+1;
+            while (array.indexOf(selected) != -1) {
+                selected = Math.floor(Math.random()*max)+1;
             }
             array.push(selected);
+            name = (clickedId==selected) ? ("the winner") : ("not the winner");
+            alert(selected+" "+name);
+        } else if (array.length == max) {
+            alert ('Sorry, you must generate some buttons again!');
         }
-        name = (clickedId==selected) ? ("the winner") : ("not the winner");
-        alert(selected+" "+name);
     }
-
