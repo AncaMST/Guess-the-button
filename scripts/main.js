@@ -17,7 +17,7 @@
             }
             onlyOnceWinner.push(selected);
             (clickedId == selected) ? (name='the winner') : (name='not the winner');
-            alert(selected + ' ' + name);
+            alert(name);
         } else if (onlyOnceWinner.length == numberOfButtons) {
             alert ('Sorry, you must generate some buttons again!');
         }

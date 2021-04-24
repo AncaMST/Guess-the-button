@@ -1,0 +1,30 @@
+h1 {
+    color: darkred;
+    margin-left: 300px;
+    font-size: 50px;
+}
+p { color: darkred;
+    font-size: 20px;
+font-weight: bold; }
+
+body {
+    background-color: lightslategrey;
+    background-image: url("../images/buttons.jpg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: right;
+}
+
+button {
+    padding: 5px;
+    text-align: center;
+    margin: 2px;
+    background-color: darkred;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkslategray;
+}
