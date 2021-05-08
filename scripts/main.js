@@ -1,4 +1,4 @@
-    var onlyOnceWinner = [], numberOfButtons, index, element, name, previousButtonsNo=0;
+    var numberOfButtons, index, element, name, previousButtonsNo=0;
 
     function generateButtons() {
         deletePreviousButtons();
@@ -10,17 +10,9 @@
     }
 
     function replyClick(clickedId) {
-        if (onlyOnceWinner.length < numberOfButtons) {
-            var selected = Math.floor(Math.random() * numberOfButtons) + 1;
-            while (onlyOnceWinner.indexOf(selected) !== -1) {
-                selected = Math.floor(Math.random() * numberOfButtons) + 1;
-            }
-            onlyOnceWinner.push(selected);
-            (clickedId == selected) ? (name='the winner') : (name='not the winner');
-            alert(name);
-        } else if (onlyOnceWinner.length == numberOfButtons) {
-            alert ('Sorry, you must generate some buttons again!');
-        }
+        var selected = Math.floor(Math.random() * numberOfButtons) + 1;
+        (clickedId == selected) ? (name='the winner') : (name='not the winner');
+        alert(name);
     }
 
 
@@ -29,7 +21,6 @@
             element = document.getElementById(index);
             element.parentNode.removeChild(element);
         }
-        onlyOnceWinner = [];
     }
 
     function createButtons() {
@@ -38,8 +29,7 @@
             element = document.createElement('button');
             element.setAttribute('id', index);
             element.setAttribute('onclick', 'replyClick(this.id)');
-            text = document.createTextNode(index);
-            element.appendChild(text);
-            document.body.appendChild(element);
+            element.innerHTML = index;
+            document.getElementById('div').appendChild(element);
         }
     }
